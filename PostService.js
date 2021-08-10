@@ -4,7 +4,7 @@ import fileService from './fileService.js'
 class PostController {
 
     async create(post, picture) {
-        const fileName = fileService(picture)
+        const fileName = fileService.saveFile(picture)
         const createdPost = await Post.create({...post, picture: fileName})
         return createdPost;
     }
